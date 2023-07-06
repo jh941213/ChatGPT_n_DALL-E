@@ -4,7 +4,7 @@ import openai
 openai.api_key = st.secrets["api_key"]
 
 st.title("KJH_GPT&DALL-E")  
-st.markdown("### 이 애플리케이션은 당신의 텍스트 입력을 기반으로 GPT-3와 DALL-E를 사용하여 이미지를 생성합니다.")
+st.markdown("##### 이 애플리케이션은 당신의 텍스트 입력을 기반으로 GPT-3와 DALL-E를 사용하여 이미지를 생성합니다.")
 
 with st.form("form"):
     user_input = st.text_input("Prompt")
