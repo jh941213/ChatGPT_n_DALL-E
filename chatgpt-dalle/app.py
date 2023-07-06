@@ -14,7 +14,7 @@ with st.form("form"):
 if submit and user_input:
     gpt_prompt = [{
         "role": "system",
-        "content": "Imagine the detail appeareance of the input. Response it shortly around 20 words"
+        "content": "Imagine the detail appearance of the input. Response it shortly around 20 words"
     }]
 
     gpt_prompt.append({
@@ -22,19 +22,22 @@ if submit and user_input:
         "content": user_input
     })
 
-    with st.spinner("Waiting for ChatGPT..."):
+    with st.spinner("ChatGPT가 응답을 준비하는 중입니다..."):
         gpt_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=gpt_prompt
         )
 
     prompt = gpt_response["choices"][0]["message"]["content"]
-    st.write(prompt)
+    st.write(f"GPT-3에 의해 생성된 프롬프트: **{prompt}**")
 
-    with st.spinner("Waiting for DALL-E..."):
+    with st.spinner("DALL-E가 이미지를 생성하는 중입니다..."):
         dalle_response = openai.Image.create(
             prompt=prompt,
             size=size
         )
 
+    st.image(dalle_response["data"][0]["url"], caption=f"{prompt}에 대한 DALL-E의 시각화")
+
+st.markdown("##### 많은 시간을 보내주셔서 감사합니다!")
     st.image(dalle_response["data"][0]["url"])
