@@ -3,7 +3,7 @@ import openai
 
 openai.api_key = st.secrets["api_key"]
 
-st.title("KDB_GPT&DALL-E")
+st.title("KJH_GPT&DALL-E")
 
 with st.form("form"):
     user_input = st.text_input("Prompt")
