@@ -39,5 +39,5 @@ if submit and user_input:
 
     st.image(dalle_response["data"][0]["url"], caption=f"{prompt}에 대한 DALL-E의 시각화")
 
-st.markdown("##### 많은 시간을 보내주셔서 감사합니다!")
+
     st.image(dalle_response["data"][0]["url"])
